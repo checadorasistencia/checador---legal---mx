@@ -1,28 +1,27 @@
 {
-  "_lea_esto": "Este archivo es el interruptor de las actualizaciones. Va en la RAIZ del repositorio, se edita directo en GitHub y todas las instalaciones lo leen. Mientras 'version' no suba, nadie descarga nada.",
+  "_lea_esto": "Interruptor de las actualizaciones. Va en la raíz del repo, se edita directo en GitHub.",
   "_como_publicar_un_parche": [
-    "1. Pedir a Brain la version nueva del artefacto exportada como archivos (index.html + assets).",
-    "2. Comprimir ESE CONTENIDO en un zip: index.html tiene que quedar en la raiz del zip, no dentro de una carpeta.",
-    "3. En GitHub: Releases -> Draft a new release -> etiqueta v30.5.0 -> subir el zip -> Publish.",
-    "4. Copiar la direccion del zip subido y pegarla abajo en 'url'.",
-    "5. Subir 'version', escribir las notas y guardar este archivo.",
-    "6. Listo: cada instalacion lo toma en su siguiente revision y lo aplica sin cerrarse."
+    "1. Pedir a Brain la versión nueva del artefacto exportada como archivos (index.html + assets).",
+    "2. Subir ESE index.html a la carpeta contenido/ del repo (reemplaza el anterior).",
+    "3. Calcular su sha256: certutil -hashfile index.html SHA256",
+    "4. Actualizar abajo: version, notas, sha256 y bytes del index.html.",
+    "5. Guardar. Las instalaciones lo toman solas en su siguiente revisión (cada 15 min)."
   ],
   "_tipos": {
-    "contenido": "Solo pantallas y calculos. Entra sin cerrar el programa. Es el caso normal.",
+    "contenido": "Solo pantallas y cálculos. Entra sin cerrar el programa. Es el caso normal.",
     "completa": "Toca el lector, el reloj oficial o la base en disco. Se sube el instalador .exe y pide reiniciar."
   },
   "_urgente": "true hace que se aplique en la primera pausa sin esperar. Usar solo cuando el error impide checar.",
-  "_sha256": "Opcional pero recomendado. En Windows: certutil -hashfile paquete.zip SHA256",
 
-  "canales": {
-    "estable": {
-      "version": "30.4.0",
-      "tipo": "contenido",
-      "urgente": false,
-      "notas": "Version instalada de fabrica.",
-      "url": "",
-      "sha256": null
+  "estable": {
+    "version": "30.10.0",
+    "tipo": "contenido",
+    "urgente": false,
+    "notas": "Módulos de escritorio completos: reportes de falla por correo, actualizador automático, almacén con integridad verificada, confirmación de cierre, rescate ante fallas y voz humana local.",
+    "contenido": {
+      "url": "https://raw.githubusercontent.com/checadorasistencia/checador---legal---mx/main/contenido/index.html",
+      "sha256": "1dddee331507266a184a5b51467c7357044beb1abe4bbcba6cb8212d3ef8cd8e",
+      "bytes": 1157504
     }
   }
 }
