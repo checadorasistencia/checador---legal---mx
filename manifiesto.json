@@ -14,14 +14,14 @@
   "_urgente": "true hace que se aplique en la primera pausa sin esperar. Usar solo cuando el error impide checar.",
 
   "estable": {
-    "version": "30.10.2",
+    "version": "30.14.1",
     "tipo": "contenido",
     "urgente": false,
-    "notas": "Prueba del pipeline: el botón Abrir kiosco cambia de verde a amarillo.",
+    "notas": "Rol: pincel con horario elegible, selector de semana libre, acciones agrupadas. Empleados: enrolamiento desde el alta. Diagnóstico sin alerta de consentimiento. Fix: marcas nocturnas y salidas a medianoche.",
     "contenido": {
       "url": "https://raw.githubusercontent.com/checadorasistencia/checador---legal---mx/main/contenido/index.html",
-      "sha256": "9538245ddd57fb681e6619bee1b59f00abac03cb23690b6f1746b78d4bfa7f6a",
-      "bytes": 1157817
+      "sha256": "43cdb66c3209f7ce3a5639b99be7f88162b4d89371209fb4ec66b84f951f43e9",
+      "bytes": 1139205
     }
   }
 }
