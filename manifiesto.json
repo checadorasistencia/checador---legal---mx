@@ -14,14 +14,14 @@
   "_urgente": "true hace que se aplique en la primera pausa sin esperar. Usar solo cuando el error impide checar.",
 
   "estable": {
-    "version": "30.10.0",
+    "version": "30.10.1",
     "tipo": "contenido",
     "urgente": false,
-    "notas": "Módulos de escritorio completos: reportes de falla por correo, actualizador automático, almacén con integridad verificada, confirmación de cierre, rescate ante fallas y voz humana local.",
+    "notas": "Prueba del pipeline: el botón Abrir kiosco del Tablero cambia de rojo a verde.",
     "contenido": {
       "url": "https://raw.githubusercontent.com/checadorasistencia/checador---legal---mx/main/contenido/index.html",
-      "sha256": "1dddee331507266a184a5b51467c7357044beb1abe4bbcba6cb8212d3ef8cd8e",
-      "bytes": 1157504
+      "sha256": "09588f04d27141440de75820802caa554943b9d5e3edbca94a7b53f87f601b52",
+      "bytes": 1157819
     }
   }
 }
