@@ -20,8 +20,8 @@
     "notas": "Corregir olvido de checada: empleado confirma con huella, encargado autoriza, registro firmado SHA-256. Incidencias y Historial tienen el nuevo flujo. Fix: orden de marcas asentadas en reportes.",
     "contenido": {
       "url": "https://raw.githubusercontent.com/checadorasistencia/checador---legal---mx/main/contenido/index.html",
-      "sha256": "43cdb66c3209f7ce3a5639b99be7f88162b4d89371209fb4ec66b84f951f43e9",
-      "bytes": 1139205
+      "sha256": "f7e6536fa2912628bac7515321a72cb62c9227a0685c54cfe65f7a9b464364df",
+      "bytes": 1147791
     }
   }
 }
