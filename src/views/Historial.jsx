@@ -9,13 +9,10 @@ import { Btn, Pill, Campo, Huella } from '../components/ui';
 const iso = (d) => d.toISOString().slice(0, 10);
 const haceDias = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return d; };
 
-/* Detalle de una persona, día por día. Es la consulta que más hace un patrón
-   («¿a qué hora llegó el martes?») y la que el convenio le promete al
-   trabajador cuando pide copia de sus registros. */
 export default function Historial({ empId, desde, hasta, onCerrar }) {
   const app = useApp();
   const emp = app.empleadoDe(empId);
-  const [asiento, setAsiento] = useState(null);   // { j, tipo }
+  const [asiento, setAsiento] = useState(null);
   const [form, setForm] = useState({ hora: '', motivo: '', facultadoId: '' });
   const [leyendo, setLeyendo] = useState(false);
 
@@ -39,14 +36,11 @@ export default function Historial({ empId, desde, hasta, onCerrar }) {
     setAsiento({ j, tipo });
   };
 
-  /* Límite deliberado: asentar una marca de hace semanas huele mal y debe ser
-     excepción documentada, no rutina. */
   const dentroDePlazo = (j) => (Date.now() - new Date(j.fecha).getTime()) <= 72 * 3600000;
 
   const confirmar = () => {
     if (!form.motivo.trim() || !form.facultadoId) return;
     setLeyendo(true);
-    // En el empaquetado, aquí se espera el dedo de la persona facultada.
     setTimeout(() => {
       app.asentarMarca({
         empId, tipo: asiento.tipo,
@@ -77,14 +71,12 @@ export default function Historial({ empId, desde, hasta, onCerrar }) {
             <Btn tone="grafito" ghost small onClick={onCerrar}>Cerrar</Btn>
           </div>
         </div>
-
         <div className="px-7 py-6">
           {js.length === 0 && (
             <p className="py-8 text-center text-[13px]" style={{ color: 'var(--grafito-2)' }}>
               Sin jornadas en este periodo.
             </p>
           )}
-
           <div className="space-y-[2px]">
             {js.map((j) => {
               const m = (t) => j.marcas.find((x) => x.tipo === t);
@@ -98,7 +90,6 @@ export default function Historial({ empId, desde, hasta, onCerrar }) {
                       {j.festivo && <span className="ml-1" style={{ color: 'var(--tinta)' }}>✱</span>}
                       {j.domingo && !j.festivo && <span className="ml-1" style={{ color: 'var(--ambar)' }}>°</span>}
                     </span>
-
                     {j.incidencia ? (
                       <span className="text-[12.5px]" style={{ color: TIPO_INCIDENCIA[j.incidencia.tipo]?.color }}>
                         {TIPO_INCIDENCIA[j.incidencia.tipo]?.largo ?? TIPO_INCIDENCIA[j.incidencia.tipo]?.label}
@@ -128,7 +119,6 @@ export default function Historial({ empId, desde, hasta, onCerrar }) {
                         {j.sinRol && <Pill tone="tinta">sin rol</Pill>}
                       </>
                     )}
-
                     {j.abierta && !j.incidencia && (
                       <span className="ml-auto flex items-center gap-2">
                         <Pill tone="tinta">sin marcar salida</Pill>
@@ -139,7 +129,6 @@ export default function Historial({ empId, desde, hasta, onCerrar }) {
                         )}
                       </span>
                     )}
-
                     {j.esFalta && !j.incidencia && (
                       <span className="ml-auto flex items-center gap-2">
                         {dentroDePlazo(j) ? (
@@ -150,8 +139,6 @@ export default function Historial({ empId, desde, hasta, onCerrar }) {
                       </span>
                     )}
                   </div>
-
-                  {/* marcas selladas del día */}
                   {j.marcas.length > 0 && (
                     <div className="mono mt-[5px] flex flex-wrap gap-x-4 gap-y-[2px] pl-[130px] text-[10px]" style={{ color: 'var(--grafito-2)' }}>
                       {j.marcas.map((r) => (
@@ -171,8 +158,6 @@ export default function Historial({ empId, desde, hasta, onCerrar }) {
             })}
           </div>
         </div>
-
-        {/* asentar marca olvidada */}
         {asiento && (
           <div className="fixed inset-0 z-50 flex items-center justify-center px-6" style={{ background: 'rgba(15,23,42,.65)' }}
             onClick={(ev) => ev.target === ev.currentTarget && setAsiento(null)}>
@@ -184,7 +169,6 @@ export default function Historial({ empId, desde, hasta, onCerrar }) {
               <div className="mono mt-1 mb-5 text-[11.5px]" style={{ color: 'var(--grafito)' }}>
                 {diaSemana(asiento.j.fecha)} {fechaCorta(asiento.j.fecha)}{asiento.j.turno ? ` · turno ${asiento.j.turno.entrada}–${asiento.j.turno.salida}` : ''}
               </div>
-
               <div className="space-y-4">
                 <Campo label="Hora que se declara">
                   <input type="datetime-local" className="w-full mono" value={form.hora} autoFocus
@@ -202,7 +186,6 @@ export default function Historial({ empId, desde, hasta, onCerrar }) {
                   </select>
                 </Campo>
               </div>
-
               <div className="mt-5 border-l-[3px] px-4 py-3" style={{ borderColor: 'var(--calibre)', background: 'rgba(22,163,74,.05)' }}>
                 <p className="text-[12px] leading-relaxed">
                   La marca original no se toca: esto crea un registro <strong>nuevo y distinto</strong>, con el sello
@@ -210,7 +193,6 @@ export default function Historial({ empId, desde, hasta, onCerrar }) {
                   reportes aparece señalada y nunca se confunde con una checada biométrica.
                 </p>
               </div>
-
               {leyendo ? (
                 <div className="mt-6 flex items-center gap-3 border px-4 py-4" style={{ borderColor: 'var(--tinta)', background: 'var(--pergamino)' }}>
                   <span className="tick" style={{ color: 'var(--tinta)' }}><Huella size={30} /></span>
