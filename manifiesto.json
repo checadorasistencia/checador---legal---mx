@@ -14,14 +14,14 @@
   "_urgente": "true hace que se aplique en la primera pausa sin esperar. Usar solo cuando el error impide checar.",
 
   "estable": {
-    "version": "30.16.5",
+    "version": "30.17.0",
     "tipo": "contenido",
     "urgente": false,
-    "notas": "El archivo para el sistema de nómina ya lleva el periodo correcto (antes salía un día antes). El paquete STPS muestra la hora local de cada checada junto al sello oficial. Incluye las noches sin rol (30.16.4) y las incidencias en su día (30.16.3).",
+    "notas": "Modo sucursal: una PC de sucursal checa, da de alta personal y enrola huellas, y todo llega a la Matriz. Se vincula con un código de 8 letras desde Configuración, Sucursales. Se quitó la firma del periodo. Arreglo: el asistente de arranque ya no borra la conexión con el servidor.",
     "contenido": {
       "url": "https://raw.githubusercontent.com/checadorasistencia/checador---legal---mx/main/contenido/index.html",
-      "sha256": "f811807a87b7da87ceeb4b60270128ee5407b5c219781dedb736bedefb8eeaa3",
-      "bytes": 1268278
+      "sha256": "f82f71285ac970c59f8a14a91936a272b969278971a76241a1a43749c6bd77e1",
+      "bytes": 1321401
     }
   }
 }
