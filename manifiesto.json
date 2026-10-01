@@ -14,14 +14,14 @@
   "_urgente": "true hace que se aplique en la primera pausa sin esperar. Usar solo cuando el error impide checar.",
 
   "estable": {
-    "version": "30.17.0",
+    "version": "30.17.3",
     "tipo": "contenido",
     "urgente": false,
-    "notas": "Modo sucursal: una PC de sucursal checa, da de alta personal y enrola huellas, y todo llega a la Matriz. Se vincula con un código de 8 letras desde Configuración, Sucursales. Se quitó la firma del periodo. Arreglo: el asistente de arranque ya no borra la conexión con el servidor.",
+    "notas": "Modo sucursal: una PC de sucursal checa, da de alta personal y enrola huellas, y todo llega a la Matriz (Configuración, Sucursales, Vincular PC). Una PC ya configurada se puede convertir en sucursal. Avisos por correo: solo pon tu correo en Para. Reinstalar en la misma PC recupera la conexión con el servidor sola. Se quitó la firma del periodo.",
     "contenido": {
       "url": "https://raw.githubusercontent.com/checadorasistencia/checador---legal---mx/main/contenido/index.html",
-      "sha256": "f82f71285ac970c59f8a14a91936a272b969278971a76241a1a43749c6bd77e1",
-      "bytes": 1321401
+      "sha256": "3e013f534e1b45eba30bcacfae688719ff5e3a5e4723a3f8471ee24b58e736c1",
+      "bytes": 1324722
     }
   }
 }
